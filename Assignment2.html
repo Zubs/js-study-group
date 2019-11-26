@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 2</title>
+	<script type="text/javascript">
+		//Exercise 1
+		function logHi() {
+			console.log("Hi")
+		}
+		logHi()
+
+		//Exercise 2
+		function alertHi() {
+			alert("Hi")
+		}
+		alertHi()
+
+		//Exercise 3
+		function checkFirst() {
+			var userOption = prompt("Do you want a greeting?")
+			if (userOption == 'YES') {
+				alert("Hi");			
+			}
+		}
+		checkFirst()
+
+		//Exercise 4
+		function askName() {
+			var name = prompt("Please enter your name")
+			alert(`Hi ${name}`)
+		}
+		askName()
+
+		//Exercise 5
+		function getUsername() {
+			return("myusername")
+		}
+		console.log(getUsername())
+
+		//Exercise 6
+		var username = getUsername()
+		console.log(username)
+
+		//Exercise 7
+		function getFullname(first, last) {
+			fullname = `${first} ${last}`
+			return(fullname)
+		}
+		console.log(getFullname('Idris', 'Zubair'))
+
+		//Exercise 8
+		var fullName = getFullname('Idris', 'Zubair')
+		console.log(fullName)
+
+		//Exercise 9
+		function askFullName() {
+			const first = prompt("First Name:")
+			const last = prompt("Last Name:")
+			return(`${first} ${last}`)
+		}
+		console.log(askFullName())
+
+		//Exercise 10
+		const userFullName = askFullName()
+		console.log(userFullName)
+
+		//Exercise 11
+		function login() {
+			const password = prompt("Password:")
+			if (password == 'password') {
+				alert("Thnak you! You are Logged in!")
+			}
+			else {
+				alert("Incorrent, please try again!")
+			}
+		}
+		login()
+		
+		//Exercise 13 and 14
+		function init() {
+			const loggedIn = getLogin()
+			console.log(loggedIn)
+			if (loggedIn == true) {
+				var name = askFullName()
+				alert(`Welcome ${name}!`)
+			}
+		}
+		init()
+
+		//Exercise 12
+		function getLogin() {
+			const password = prompt("Password:")
+			if (password == 'password') {
+				alert("Thnak you! You are Logged in!")
+				return(true)
+			}
+			else {
+				alert("Incorrent, please try again!")
+				return(false)
+			}
+		}
+		getLogin()
+
+		//Exercise 15
+		function getHeaderMarkup() {
+			return(`<h1>Header</h1>`)
+		}
+		console.log(getHeaderMarkup())
+
+		//Exercise 16
+		function getMyHeaderMarkup(title) {
+			return(`<h1>${title}</h1>`)
+		}
+		console.log(getMyHeaderMarkup('My Header'))
+
+		//Exercise 17
+		function getLinkMarkup() {
+			return(`<a href="#link">Link</a>`)
+		}
+		console.log(getLinkMarkup())
+
+		//Exercise 19
+		function getHeaderLinkMarkup(title, url) {
+			var link = getMyLinkMarkup(`${title}`, `${url}`)
+			var header = getMyHeaderMarkup(`${link}`)
+			return(header)
+		}
+		console.log(getHeaderLinkMarkup('Javascript Explained', 'https://javascriptexplained.com'))
+
+		//Exercise 18
+		function getMyLinkMarkup(title, url) {
+			return(`<a href="${url}">${title}</a>`)
+		}
+		console.log(getMyLinkMarkup('Javascript Explained', 'https://javascriptexplained.com'))
+
+		//Exercise 22
+		function getArticleMarkup(title, url, excerpt, author) {
+			let markup = getHeaderLinkMarkup(`${title}`, `${url}`)
+			markup += getExcerptMarkup(`${excerpt}`)
+			markup += getAuthorMarkup(`${author}`)
+			return(markup)
+		}
+		console.log(getArticleMarkup('Javascript Explained', 'https://javascriptexplained.com', 'i need money', 'YoungZubs'))
+
+		//Exercise 20
+		function getExcerptMarkup(excerpt) {
+			return(`<div class="${excerpt}"><p>${excerpt}</p></div>`)
+		}
+		console.log(getExcerptMarkup('men like us'))
+
+		//Exercise 21
+		function getAuthorMarkup(author) {
+			return(`<p>By: ${author}</p>`)
+		}
+		console.log('John Doe')
+
+		//Exercise 23
+		function add(x, y) {
+			return(x + y)
+		}
+		console.log(add(12, 7))
+
+		//Exercise 24
+		function subtract(x, y) {
+			return(x - y)
+		}
+		console.log(subtract(12, 7))
+
+		//Exercise 25
+		function multiply(x, y) {
+			return(x * y)
+		}
+		console.log(multiply(12, 7))
+
+		//Exercise 26
+		function getTaxes(price) {
+			const rate = 0.05
+			return(price * rate)
+		}
+		console.log(getTaxes(127))
+
+		//Exercise 27
+		const logHi_1 = (msg = `Hi`) => `${msg}`
+		console.log(logHi_1())
+
+		//Exercise 28
+		const getUsername_1 = (username = `myusername`) => `${username}`
+		console.log(getUsername_1())
+
+		//Exercise 29
+		const login_1 = (password) => {
+			if (password == 'password') {
+				alert("Thnak you! You are Logged in!")
+			}
+			else {
+				alert("Incorrent, please try again!")
+			}
+		}
+		login_1(`password`)
+
+		//Exercise 30
+		const getHeaderLinkMarkup_1 = (title, url) => {
+			var link = getMyLinkMarkup(`${title}`, `${url}`)
+			var header = getMyHeaderMarkup(`${link}`)
+			return(header)
+		}
+		const getExcerptMarkup_1 = (excerpt) => {
+			return(`<div class="${excerpt}"><p>${excerpt}</p></div>`)
+		}
+		const getAuthorMarkup_1 = (author) => {
+			return(`<p>By: ${author}</p>`)
+		}
+
+		const getArticleMarkup_1 = (title, url, excerpt, author) => {
+			let markup = getHeaderLinkMarkup_1(`${title}`, `${url}`)
+			markup += getExcerptMarkup_1(`${excerpt}`)
+			markup += getAuthorMarkup_1(`${author}`)
+		}
+		console.log(getArticleMarkup_1(`Javascript Explained`, `https://javascriptexplained.com`, `i want money`, `YoungZubs`))
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>			

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 3</title>
+	<script type="text/javascript">
+		//Exercise 1
+		const me = {
+			first: `Idris`,
+			last: `Zubair`,
+		}
+		console.log(me)
+
+		//Exercise 2, 3, 4 and 5
+		const user = {
+			id: `1`,
+			username: `yourusername`,
+			isLoggedIn: true,
+			sayHi: function() {
+				if (user.isLoggedIn == true) {
+					console.log(`Hi ${user.username}`)
+				} else {
+					console.log(`Hey ${user.username}, how about you log in?`)
+				}
+			},
+			sayHiWithThis: function() {
+				if (this.isLoggedIn == true) {
+					console.log(`Hi ${this.username}!`)
+				} else {
+					console.log(`Hey ${this.username}, how about you log in?`)
+				}
+			},
+		}
+		console.log(user)
+		user.sayHi()
+		user.sayHiWithThis()
+
+		//Exercise 6
+		function getUserInfo() {
+			const user = {}
+			user.username = prompt(`Username:`)
+			user.password = prompt(`Password:`)
+			return(user)
+		}
+		console.log(getUserInfo())
+
+		//Exercise 9 and 8
+		const post = {
+			id: 1,
+			title: `Javascript Explained`,
+			url: `https://javascriptexplained.com/Lorem ipsum dolor sit amet`,
+			excerpt: `tema tis rolod muspi merol`,
+		}
+		function getExcerptMarkup(post) {
+			return(`<div class="${post.excerpt}"><p>${post.excerpt}</p></div>`)
+		}
+		console.log(post)
+		console.log(getExcerptMarkup(post))
+
+		//Exercise 10
+		function getPostMarkup(post) {
+			let markup = `<article id="post.id`
+			markup += getHeaderMarkUp(post)
+			markup += getExcerptMarkup(post)
+			return(markup)
+		}
+		console.log(getPostMarkup(post))
+
+		//Exercise 7
+		function getHeaderMarkUp(post) {
+			return(`<h1><a href="${post.url}">${post.title}</a></h1>`)
+		}
+		console.log(getHeaderMarkUp(post))
+
+		//Exercise 11
+		const message = {
+			notice: `This is a notice`,
+			error: `An error occured`,
+			success: `Success!`,
+		}
+		console.log(message)
+
+		//Exercise 12
+		function getMessage(type) {
+			const message = {
+				notice: `This is a notice`,
+				error: `An error occured`,
+				success: `Success!`,
+			}
+			return(message.type)
+		}
+		console.log(getMessage(`notice`))
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

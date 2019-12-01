@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 4</title>
+</head>
+<body>
+	<h1>This is the heading</h1>
+	<nav id="menu">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Programmes</a></li>
+		</ul>
+	</nav>
+	<div id="app">even though i am a <p><a href="javascriptexplained.com">boy</a></p></div>
+	<div class="web"><p><a href="goal.com">girl</a> is my favorite creature yet</p></div>
+	<div class="modal">
+		<p><input type="button" name="openmodal" class="openmodal" value="Open Modal"></p>
+		<p><input type="button" name="closemodal" class="closemodal" value="Close Model"></p>
+	</div>
+	<div id="videodiv" style="width: 1100px;"><fieldset><legend>Web Development Tutorial</legend>
+		<video src="../videos/HTML Tutorial for Beginners - 00 - Introduction to HTML.mp4" width="1000px" controls></video>
+		<p><input type="button" name="play" value="Play" id="playbutton"> <input type="button" name="pause" value="Pause" id="pausebutton"></p>
+	</fieldset></div>
+	<div>
+		<input type="button" name="openMyModal" value="Open My Modal" class="openMyModal">
+	</div>
+</body>
+<script type="text/javascript">
+	//Exercise 30
+	const video = document.querySelector(`video`)
+	const playbutton = document.querySelector(`#playbutton`)
+	const pausebutton = document.querySelector(`#pausebutton`)
+	function playVideo(e) {
+		video.play()
+	}
+	function pauseVideo(e) {
+		video.pause()
+	}
+	playbutton.addEventListener(`click`, playVideo)
+	pausebutton.addEventListener(`click`, pauseVideo)
+
+	//Exercise 1
+	const container = document.querySelector(`#app`)
+	console.log(container)
+
+	//Exercise 2
+	const firstHeader = document.querySelector(`h1`)
+	console.log(firstHeader)
+
+	//Exercise 3
+	const firstDiv = document.querySelector(`div`)
+	console.log(firstDiv)
+
+	//Exercise 4
+	console.log(container.innerHTML)
+
+	//Exercise 5
+	console.log(firstHeader.innerHTML)
+
+	//Exercise 6
+	console.log(firstHeader.innerText)
+
+	//Exercise 7
+	console.log(firstDiv.innerHTML)
+
+	//Exercise 8
+	console.log(firstDiv.innerText)
+
+	//Exercise 9
+	const links = document.querySelectorAll(`a`)
+	console.log(links)
+
+	//Exercise 10
+	const linksArray = Array.from(links)
+	console.log(linksArray)
+
+	//Exercise 11
+	linksArray.map(linkArray => {
+		console.log(linkArray.innerHTML)
+	})
+
+	//Exercise 12
+	const menuLinks = Array.from(document.querySelectorAll(`#menu a`))
+	menuLinks.map(menuLink => {
+		console.log(menuLink.innerHTML)
+	})
+
+	//Exercise 13
+	function staticHeader() {
+		return(`<h2>Static Header</h2>`)
+	}
+	console.log(staticHeader())
+
+	//Exercise 14
+	container.insertAdjacentHTML(`beforeend`, staticHeader())
+
+	//Exercise 15
+	function header(title) {
+		return(`<h2>${title}</h2>`)
+	}
+	console.log(header(`My Header`))
+
+	//Exercise 16
+	container.insertAdjacentHTML(`beforeend`, header(`My Header`))
+
+	//Exercise 17
+	function menuLink(text, link) {
+		return(`<li><a href="${link}">${text}</a></li>`)
+	}
+	console.log(menuLink(`Home`, `/#home`))
+
+	//Execise 18
+	document.querySelector(`a`).addEventListener(`click`, logTitle)
+	function logTitle(e) {
+		e.preventDefault()
+		console.log(e.innerText)
+	}
+
+	//Exercise 19
+	linksArray.map(linkArray => {
+		linkArray.addEventListener(`click`, logTitle)
+	})
+
+	//Exercise 20 and 21
+	function logLink(e) {
+		e.preventDefault()
+		console.log(e)
+	}
+	linksArray.map(linkArray => {
+		linkArray.addEventListener(`click`, logLink)
+	})
+
+	//Exercise 22
+	function logMousePosition(e) {
+		e.preventDefault()
+		console.log(e)
+	}
+	container.addEventListener(`mousemove`, logMousePosition)
+
+	//Exercise 23
+	const firstLink = document.querySelector(`a`)
+	firstLink.addEventListener(`click`, logMousePosition)
+
+	//Exercise 24
+	function logParent(e) {
+		console.log(this.parentNode)
+	}
+	const XXX = Array.from(document.querySelectorAll(`p`))
+	XXX.map(XXX => {
+		XXX.addEventListener(`mouseover`, logParent)
+	})
+
+	//Exercise 25
+	const openbutton = document.querySelector(`.openmodal`)
+	function toggleModal(e) {
+		e.classList.toggle(`hidden`)
+	}
+	openbutton.addEventListener(`click`, toggleModal)
+
+	//Exercise 26
+	const closebutton = document.querySelector(`.closemodal`)
+	closebutton.addEventListener(`click`, toggleModal)
+
+	//Exercise 27
+	function modal() {
+		return(`<div class="overlay"><div id="my-modal" class="modal"><button class="close">Close My Modal</button><h1>My Modal!</h1></div></div>`)
+	}
+	console.log(modal())
+
+	//Exercise 28
+	const openMyModal = document.querySelector(`.openMyModal`)
+	function openModal(e) {
+		document.querySelector(`body`).insertAdjacentHTML(`beforeend`, modal())
+		if (document.querySelector(`.overlay close`)) {
+			document.querySelector(`.overlay close`).addEventListener(`click`, removeModal)
+		}
+	}
+	openMyModal.addEventListener(`click`, openModal)
+
+	//Exercise 29
+	function removeModal(e) {
+		document.querySelector(`.overlay close`).innerHTML = ``
+	}
+
+</script>
+</html>

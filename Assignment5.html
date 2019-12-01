@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 5</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	//Exercise 1, 2, 3, 4 and 5
+	function getDog() {
+		fetch(`https://dog.ceo/api/breeds/image/random`)
+		.then(response => response.json())
+		.then(data => {
+			console.log(`<img src="{data.message}" alt="Random Photo of a Dog" />`)
+			document.querySelector(`body`).insertAdjacentHTML(`beforeend`, `<img src="{data.message}" alt="Random Photo of a Dog />`)
+		})
+		.catch(error => console.log(error))
+	}
+	async function initDogApi() {
+		const dogPic = await getDog()
+		return(dogPic)
+	}
+	initDogApi()
+
+	//Exercise 6 and 7
+	function getRates() {
+		fetch(`https://api.exchangeratesapi.io/latest`)
+		.then(response => response.json())
+		.then(data => {
+			console.log(data)
+		})
+	}
+	async function initRates() {
+		const exchange = await getRates()
+		return(exchange)
+	}
+
+</script>
+</html>
